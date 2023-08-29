@@ -1,7 +1,7 @@
 const mongo = require('mongoose');
 
 
-const theatreSchema = new mongo.Schema({
+const theatreSchema = mongo.Schema({
 
     name : {
         type : String,
@@ -16,13 +16,13 @@ const theatreSchema = new mongo.Schema({
         required : true
     },
     pincode : {
-        type : Number,
+        type : String,
         required : true
     },
-    movies : {
-        type : [mongo.SchemaTypes.ObjectId],
-        ref : 'Movie'
-    },
+    // movies : {
+    //     type : [mongo.SchemaTypes.ObjectId],
+    //     ref : 'Movie'
+    // },
     createdAt: {
         type: Date,
         immutable: true, 
@@ -32,4 +32,4 @@ const theatreSchema = new mongo.Schema({
     }
 });
 
-module.exports = mongo.model('Theatre',theatreSchema);
+module.exports = mongo.model('Theatres',theatreSchema);

@@ -1,8 +1,10 @@
-const {createTheatre} = require('../controllers/theatres.controller')
+const theatreController = require('../controllers/theatres.controller')
+const express = require('express')
+
+const routes = express.Router();
 
 
-const creatTheatre = (app) => {
-    app.post('mba/api/theatres', createTheatre)
-}
+routes.post('/theatres',theatreController.createTheatre);
+routes.get('/theatres', theatreController.getAllTheatre);
 
-module.exports = {creatTheatre}
+module.exports = routes
